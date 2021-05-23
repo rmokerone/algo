@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.js": "javascriptreact",
+        "semaphore.h": "c",
+        "cstdlib": "c"
+    }
+}
