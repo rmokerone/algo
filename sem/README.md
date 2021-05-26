@@ -1,4 +1,4 @@
-SEM
+POSIX接口SEM
 ===
 
 # 信号量

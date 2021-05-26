@@ -1,4 +1,4 @@
-SHM
+POSIX标准SHM
 ===
 
 # 共享内存
