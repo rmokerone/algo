@@ -1,0 +1,2 @@
+ipcrm -M 0x162e
+ipcrm -S 0x162e
