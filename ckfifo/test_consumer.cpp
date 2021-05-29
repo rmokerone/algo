@@ -13,7 +13,7 @@ int main()
     for (int i = 0; i < 1000; i ++){
         
         f->ckfifo_get_chunk((unsigned char*)buf, 11);
-        printf("%s\n", buf);
+        printf("%s, len=%d\n", buf, f->ckfifo_len());
         memset(buf, 0, 1024);
         usleep(500*1000);
     }
