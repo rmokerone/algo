@@ -1,0 +1,11 @@
+{
+	"name":	"vroot",
+	"age":	32,
+	"weight":	55.5,
+	"address":	{
+		"country":	"China",
+		"zip-code":	111111
+	},
+	"skill":	["C", "Java", "Python"],
+	"student":	false
+}
