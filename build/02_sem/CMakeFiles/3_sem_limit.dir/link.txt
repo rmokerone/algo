@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -rdynamic CMakeFiles/3_sem_limit.dir/3_sem_limit.c.o  -o 3_sem_limit -lpthread 

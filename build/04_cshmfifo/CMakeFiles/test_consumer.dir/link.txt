@@ -1,0 +1,1 @@
+/usr/bin/c++   -O0 -Wall -g2 -ggdb  -rdynamic CMakeFiles/test_consumer.dir/test_consumer.cpp.o CMakeFiles/test_consumer.dir/cshmfifo.cpp.o CMakeFiles/test_consumer.dir/__/common/src/cJSON.c.o CMakeFiles/test_consumer.dir/__/common/src/ipc.c.o  -o test_consumer 

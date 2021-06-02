@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vroot/disk/Algo/02_sem/2_wait.c
+stdlib.h
+-
+stdio.h
+-
+fcntl.h
+-
+sys/stat.h
+-
+semaphore.h
+-
+unistd.h
+-
+

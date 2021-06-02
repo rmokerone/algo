@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -rdynamic CMakeFiles/1_create_remove_shm.dir/1_create_remove_shm.c.o  -o 1_create_remove_shm -lrt 

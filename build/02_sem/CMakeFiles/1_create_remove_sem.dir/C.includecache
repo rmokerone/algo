@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vroot/disk/Algo/02_sem/1_create_remove_sem.c
+stdlib.h
+-
+stdio.h
+-
+fcntl.h
+-
+sys/stat.h
+-
+semaphore.h
+-
+unistd.h
+-
+

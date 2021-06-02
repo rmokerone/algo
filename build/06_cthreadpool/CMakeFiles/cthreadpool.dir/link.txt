@@ -1,0 +1,1 @@
+/usr/bin/c++   -O0 -Wall -g2 -ggdb  -rdynamic CMakeFiles/cthreadpool.dir/ctask.cpp.o CMakeFiles/cthreadpool.dir/main.cpp.o CMakeFiles/cthreadpool.dir/cthreadpool.cpp.o  -o cthreadpool -lpthread 

@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vroot/disk/Algo/06_cthreadpool/ctask.cpp
+ctask.h
+/home/vroot/disk/Algo/06_cthreadpool/ctask.h
+iostream
+-
+
+/home/vroot/disk/Algo/06_cthreadpool/ctask.h
+
+/home/vroot/disk/Algo/06_cthreadpool/cthreadpool.cpp
+cthreadpool.h
+/home/vroot/disk/Algo/06_cthreadpool/cthreadpool.h
+stdio.h
+-
+unistd.h
+-
+errno.h
+-
+
+/home/vroot/disk/Algo/06_cthreadpool/cthreadpool.h
+list
+-
+queue
+-
+pthread.h
+-
+ctask.h
+/home/vroot/disk/Algo/06_cthreadpool/ctask.h
+
+/home/vroot/disk/Algo/06_cthreadpool/main.cpp
+iostream
+-
+unistd.h
+-
+ctask.h
+/home/vroot/disk/Algo/06_cthreadpool/ctask.h
+cthreadpool.h
+/home/vroot/disk/Algo/06_cthreadpool/cthreadpool.h
+

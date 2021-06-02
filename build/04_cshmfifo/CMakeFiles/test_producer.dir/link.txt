@@ -1,0 +1,1 @@
+/usr/bin/c++   -O0 -Wall -g2 -ggdb  -rdynamic CMakeFiles/test_producer.dir/test_producer.cpp.o CMakeFiles/test_producer.dir/cshmfifo.cpp.o CMakeFiles/test_producer.dir/__/common/src/cJSON.c.o CMakeFiles/test_producer.dir/__/common/src/ipc.c.o  -o test_producer 

@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -rdynamic CMakeFiles/loads.dir/loads.c.o CMakeFiles/loads.dir/__/common/src/cJSON.c.o CMakeFiles/loads.dir/__/common/src/ipc.c.o  -o loads 

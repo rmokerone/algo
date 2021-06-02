@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vroot/disk/Algo/01_shm/2_read.c
+sys/mman.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+stdio.h
+-
+unistd.h
+-
+sys/types.h
+-
+stdlib.h
+-
+
