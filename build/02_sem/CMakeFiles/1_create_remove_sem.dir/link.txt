@@ -1,1 +1,0 @@
-/usr/bin/cc -g  -rdynamic CMakeFiles/1_create_remove_sem.dir/1_create_remove_sem.c.o  -o 1_create_remove_sem -lpthread 

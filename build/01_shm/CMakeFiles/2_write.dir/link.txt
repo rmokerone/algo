@@ -1,1 +1,0 @@
-/usr/bin/cc -g  -rdynamic CMakeFiles/2_write.dir/2_write.c.o  -o 2_write -lrt 

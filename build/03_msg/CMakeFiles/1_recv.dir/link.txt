@@ -1,1 +1,0 @@
-/usr/bin/cc -g  -rdynamic CMakeFiles/1_recv.dir/1_recv.c.o  -o 1_recv 

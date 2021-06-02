@@ -1,1 +1,0 @@
-/usr/bin/cc -g  -rdynamic CMakeFiles/dumps.dir/dumps.c.o CMakeFiles/dumps.dir/__/common/src/cJSON.c.o CMakeFiles/dumps.dir/__/common/src/ipc.c.o  -o dumps 
