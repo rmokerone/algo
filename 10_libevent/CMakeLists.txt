@@ -1,0 +1,5 @@
+ADD_EXECUTABLE(test_block_http_client test_block_http_client.c)
+TARGET_LINK_LIBRARIES(test_block_http_client)
+
+ADD_EXECUTABLE(forking_rot13_server forking_rot13_server.c)
+TARGET_LINK_LIBRARIES(forking_rot13_server)
