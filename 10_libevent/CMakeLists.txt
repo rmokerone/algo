@@ -3,3 +3,14 @@ TARGET_LINK_LIBRARIES(test_block_http_client)
 
 ADD_EXECUTABLE(forking_rot13_server forking_rot13_server.c)
 TARGET_LINK_LIBRARIES(forking_rot13_server)
+
+
+
+ADD_EXECUTABLE(1_first_libevent 1_first_libevent.cpp)
+TARGET_LINK_LIBRARIES(1_first_libevent event)
+
+ADD_EXECUTABLE(2_test_server 2_test_server.cpp)
+TARGET_LINK_LIBRARIES(2_test_server event)
+
+ADD_EXECUTABLE(3_test_conf 3_test_conf.cpp)
+TARGET_LINK_LIBRARIES(3_test_conf event)
