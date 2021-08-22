@@ -33,3 +33,6 @@ TARGET_LINK_LIBRARIES(8_test_signal_loop event)
 
 ADD_EXECUTABLE(9_test_buffer 9_test_buffer.cpp)
 TARGET_LINK_LIBRARIES(9_test_buffer event)
+
+ADD_EXECUTABLE(10_test_buffer_client 10_test_buffer_client.cpp)
+TARGET_LINK_LIBRARIES(10_test_buffer_client event)
