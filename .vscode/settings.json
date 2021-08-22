@@ -3,6 +3,7 @@
         "*.js": "javascriptreact",
         "semaphore.h": "c",
         "cstdlib": "c",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "ostream": "cpp"
     }
 }

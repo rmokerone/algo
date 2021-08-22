@@ -23,3 +23,13 @@ TARGET_LINK_LIBRARIES(5_test_timer event)
 
 ADD_EXECUTABLE(6_test_file 6_test_file.cpp)
 TARGET_LINK_LIBRARIES(6_test_file event)
+
+ADD_EXECUTABLE(7_test_event_server 7_test_event_server.cpp)
+TARGET_LINK_LIBRARIES(7_test_event_server event)
+
+ADD_EXECUTABLE(8_test_signal_loop 8_test_signal_loop.cpp)
+TARGET_LINK_LIBRARIES(8_test_signal_loop event)
+
+
+ADD_EXECUTABLE(9_test_buffer 9_test_buffer.cpp)
+TARGET_LINK_LIBRARIES(9_test_buffer event)
