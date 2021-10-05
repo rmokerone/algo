@@ -21,6 +21,14 @@ void event_cb(bufferevent *be, short events, void *arg)
     // 读取超时时间发生后 数据读取停止
     if ((events & BEV_EVENT_TIMEOUT) && (events & BEV_EVENT_READING)){
         cout << "BEV_EVENT_TIMEOUT" << endl;
+
+        char data[1024] = {0};
+        // 读取缓冲区数据
+        int len = bufferevent_read(be, data, sizeof(data)-1);
+        if (len > 0){
+            recvCount += len;
+            recvstr += data;
+        }
         // bufferevent_enable(be, EV_READ);
         bufferevent_free(be);
         cout << recvstr << endl;
@@ -74,6 +82,13 @@ void client_event_cb(bufferevent *be, short events, void *arg)
         return;
     }
 
+    // 服务端关闭事件
+    if (events & BEV_EVENT_EOF)
+    {
+        cout << "BEV_EVENT_EOF" << endl;
+        bufferevent_free(be);
+    }
+
     if (events & BEV_EVENT_CONNECTED){
         cout << "BEV_EVENT_CONNECTED" << endl;
         bufferevent_trigger(be, EV_WRITE, 0);
@@ -125,7 +140,7 @@ void listen_cb(evconnlistener *ev, evutil_socket_t s, sockaddr *sin, int slen, v
     );
 
     // 超时时间设置
-    timeval t1 = {3, 0};
+    timeval t1 = {0, 500*1000};
     bufferevent_set_timeouts(bev, &t1, 0);
 
     // 设置回调函数

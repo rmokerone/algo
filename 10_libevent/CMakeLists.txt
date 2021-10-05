@@ -36,3 +36,9 @@ TARGET_LINK_LIBRARIES(9_test_buffer event)
 
 ADD_EXECUTABLE(10_test_buffer_client 10_test_buffer_client.cpp)
 TARGET_LINK_LIBRARIES(10_test_buffer_client event)
+
+ADD_EXECUTABLE(11_test_buffer_filter 11_test_buffer_filter.cpp)
+TARGET_LINK_LIBRARIES(11_test_buffer_filter event)
+
+
+ADD_SUBDIRECTORY(12_test_buffer_filter_zlib)
