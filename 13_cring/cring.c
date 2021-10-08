@@ -1,6 +1,11 @@
 
 #include "cring.h"
 
+unsigned int cring_full_size(unsigned int size, unsigned int capacity, CRING_MEDIA_TYPE type)
+{
+    return size * (capacity+sizeof(cring_frame_head)) + sizeof(cring_context);
+}
+
 /**
  * @brief 创建cring环形缓冲区
  * 
@@ -13,11 +18,20 @@ cring_context* cring_create(unsigned int size, unsigned int capacity, CRING_MEDI
 {
     unsigned int full_size = size * (capacity+sizeof(cring_frame_head)) + sizeof(cring_context);
     
-    cring_context* ctx = (cring_context*)malloc(full_size);
-    if (ctx == NULL){
+    unsigned char* buf = (unsigned char*)malloc(full_size);
+    if (buf == NULL){
         perror("cring_create ");
-        return ctx;
+        return NULL;
     }
+
+
+    return cring_create_not_malloc(buf, size, capacity, type);
+}
+
+cring_context* cring_create_not_malloc(unsigned char* buf, unsigned int size, unsigned int capacity, CRING_MEDIA_TYPE type)
+{
+    if (buf == NULL) return NULL;
+    cring_context* ctx = (cring_context*)buf;
 
     ctx->in = 0;
     ctx->out = 0;
@@ -26,15 +40,16 @@ cring_context* cring_create(unsigned int size, unsigned int capacity, CRING_MEDI
     ctx->frame_capacity = capacity;
     ctx->type = type;
 
-    ctx->frm_start_addr = (unsigned char*)(ctx+1);
+    unsigned char *frm_start_addr = (unsigned char*)(ctx+1);
 
     ctx->frm_full_size =  size*capacity;
 
     ctx->frm_per_size = capacity+sizeof(cring_frame_head);
 
-    memset(ctx->frm_start_addr , 0, ctx->frm_full_size);
+    memset(frm_start_addr , 0, ctx->frm_full_size);
 
     return ctx;
+
 }
 
 /**
@@ -78,7 +93,9 @@ int cring_put(cring_context *ctx, cring_frame *frm)
         return -1;
     }
 
-    unsigned char *dst_ptr = ctx->frm_start_addr + ctx->in * ctx->frm_per_size;
+    unsigned char *frm_start_addr = (unsigned char*)(ctx+1);
+
+    unsigned char *dst_ptr = frm_start_addr + ctx->in * ctx->frm_per_size;
 
     printf("dst_ptr = %p\n", dst_ptr);
 
@@ -113,7 +130,9 @@ int cring_put_raw(cring_context *ctx, unsigned char* buf, unsigned int buf_size,
         return -1;
     }
 
-    unsigned char *dst_ptr = ctx->frm_start_addr + ctx->in * ctx->frm_per_size;
+    unsigned char *frm_start_addr = (unsigned char*)(ctx+1);
+
+    unsigned char *dst_ptr = frm_start_addr + ctx->in * ctx->frm_per_size;
 
     cring_frame_head *head = (cring_frame_head *)dst_ptr;
     head->frame_capacity = ctx->frame_capacity;
@@ -147,8 +166,10 @@ int cring_get(cring_context *ctx, cring_frame *frm)
     unsigned int pos = ctx->out;
     ctx->out = addring(ctx, ctx->out);
     ctx->n -= 1;
+
+    unsigned char *frm_start_addr = (unsigned char*)(ctx+1);
     
-    unsigned char *src_ptr = ctx->frm_start_addr + pos * ctx->frm_per_size;
+    unsigned char *src_ptr = frm_start_addr + pos * ctx->frm_per_size;
 
     printf("src_ptr = %p\n", src_ptr);
 

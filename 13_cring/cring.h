@@ -40,7 +40,7 @@ typedef struct {
     unsigned int n;     // cring当前有几个frame
     CRING_MEDIA_TYPE type;
     unsigned int frame_capacity;   // 每帧的最大的容量是多少
-    unsigned char* frm_start_addr;
+    // unsigned char* frm_start_addr;
     unsigned int frm_full_size;
     unsigned int frm_per_size;
 } cring_context;
@@ -55,6 +55,7 @@ typedef struct {
  */
 cring_context *cring_create(unsigned int size, unsigned int capacity, CRING_MEDIA_TYPE type);
 
+cring_context* cring_create_not_malloc(unsigned char* buf, unsigned int size, unsigned int capacity, CRING_MEDIA_TYPE type);
 /**
  * @brief 创建frame结构体
  * 
@@ -108,6 +109,9 @@ void cring_frame_free(cring_frame *frm);
  * @param ctx cring_context结构体
  */
 void cring_destroy(cring_context *ctx);
+
+
+unsigned int cring_full_size(unsigned int size, unsigned int capacity, CRING_MEDIA_TYPE type);
 
 
 #endif 
