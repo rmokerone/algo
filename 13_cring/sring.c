@@ -73,6 +73,23 @@ int sring_get(sring_context *ctx, cring_frame *frm)
 }
 
 
+
+/**
+ * @brief 清空sring缓冲区中的数据
+ * 
+ * @param ctx sring_context结构体
+ */
+void sring_reset(sring_context *ctx)
+{
+    if (ctx == NULL) return;
+    sem_p(ctx->sem_mutex_id);
+
+    cring_reset(ctx->shm_start_addr);
+
+    sem_v(ctx->sem_mutex_id);
+}
+
+
 void sring_destroy(sring_context *ctx)
 {
     if (ctx == NULL) return;

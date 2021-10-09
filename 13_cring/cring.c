@@ -72,7 +72,7 @@ cring_frame *cring_frame_malloc(cring_context *ctx)
     return frm;
 }
 
-int addring(cring_context *ctx, int i)
+int cring_addring(cring_context *ctx, int i)
 {
     return (i + 1) == ctx->size ? 0 : i + 1;
 }
@@ -106,7 +106,7 @@ int cring_put(cring_context *ctx, cring_frame *frm)
     memcpy(dst_ptr, frm, sizeof(cring_frame_head));
     memcpy(dst_ptr+sizeof(cring_frame_head), frm->data, frm->frame_size);
 
-    ctx->in = addring(ctx, ctx->in);
+    ctx->in = cring_addring(ctx, ctx->in);
 
     ctx->n += 1;
 
@@ -141,7 +141,7 @@ int cring_put_raw(cring_context *ctx, unsigned char* buf, unsigned int buf_size,
 
     memcpy(dst_ptr+sizeof(cring_frame_head), buf, buf_size);
 
-    ctx->in = addring(ctx, ctx->in);
+    ctx->in = cring_addring(ctx, ctx->in);
 
     ctx->n += 1;
 
@@ -164,7 +164,7 @@ int cring_get(cring_context *ctx, cring_frame *frm)
         return -1;
     }
     unsigned int pos = ctx->out;
-    ctx->out = addring(ctx, ctx->out);
+    ctx->out = cring_addring(ctx, ctx->out);
     ctx->n -= 1;
 
     unsigned char *frm_start_addr = (unsigned char*)(ctx+1);
@@ -179,6 +179,20 @@ int cring_get(cring_context *ctx, cring_frame *frm)
     memcpy(frm->data, src_ptr+sizeof(cring_frame_head), frame_size);
 
     return frm->frame_size;
+}
+
+/**
+ * @brief 清空cring缓冲区中的数据
+ * 
+ * @param ctx cring_context结构体
+ */
+void cring_reset(cring_context *ctx)
+{
+    if (ctx == NULL) return;
+
+    ctx->in = 0;
+    ctx->out = 0;
+    ctx->n = 0;
 }
 
 

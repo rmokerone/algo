@@ -20,7 +20,11 @@ int main(void)
     put_frm->data[0] = 123;
     put_frm->frame_size = 1;
 
-    retval = sring_put(ctx, put_frm);
+    char data[1];
+    data[0] = 222;
+
+    // retval = sring_put(ctx, put_frm);
+    retval = sring_put_raw(ctx, data, 1, CRING_FRAME_AAC);
     printf("retval = %d\n", retval);
 
     getchar();

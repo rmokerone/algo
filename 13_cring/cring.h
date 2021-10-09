@@ -97,6 +97,14 @@ int cring_get(cring_context *ctx, cring_frame *frm);
 
 
 /**
+ * @brief 清空cring缓冲区中的数据
+ * 
+ * @param ctx cring_context结构体
+ */
+void cring_reset(cring_context *ctx);
+
+
+/**
  * @brief 释放frame结构体
  * 
  * @param frm cring_frame结构体
